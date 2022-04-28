@@ -29,5 +29,6 @@
     </dependencies>
     <build>
         <defaultGoal>install</defaultGoal>
+        <testSourceDirectory>src/test/java</testSourceDirectory>
     </build>
 </project>

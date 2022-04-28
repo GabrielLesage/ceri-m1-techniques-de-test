@@ -13,11 +13,10 @@ package fr.univavignon.pokedex.api;
    /**
     * Default constructor.
     *
-    * @param message Error message.
     * @see Exception#Exception(String)
     */
-   public PokedexException(final String message) {
-     super(message);
+   public PokedexException() {
+     super();
    }
 
  }
