@@ -20,7 +20,7 @@ public class IPokedexTest {
         bulbizarre = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 56);
         listPokemon = new ArrayList<>();
         when(pokedex.addPokemon(bulbizarre)).thenReturn(0);
-        when(pokedex.size()).thenReturn(listPokemon.size());
+        when(pokedex.size()).thenReturn(0);
         when(pokedex.getPokemon(0)).thenReturn(bulbizarre);
         when(pokedex.getPokemon(-1)).thenThrow(new PokedexException());
         when(pokedex.getPokemons()).thenReturn(listPokemon);
@@ -35,6 +35,7 @@ public class IPokedexTest {
     public void addPokemonTest() throws PokedexException {
         Assert.assertEquals(pokedex.addPokemon(bulbizarre),0);
         listPokemon.add(bulbizarre);
+        when(pokedex.size()).thenReturn(1);
         Assert.assertEquals(pokedex.size(), 1);
         Assert.assertEquals(pokedex.getPokemon(0), bulbizarre);
     }
