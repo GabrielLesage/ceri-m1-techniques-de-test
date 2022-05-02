@@ -1,3 +1,9 @@
+[![codecov](https://codecov.io/gh/GabrielLesage/ceri-m1-techniques-de-test/branch/master/graph/badge.svg?token=LRB9Y861AD)](https://codecov.io/gh/GabrielLesage/ceri-m1-techniques-de-test)
+[![CircleCI](https://circleci.com/gh/GabrielLesage/ceri-m1-techniques-de-test/tree/master.svg?style=svg)](https://circleci.com/gh/GabrielLesage/ceri-m1-techniques-de-test/tree/master)
+
+Auteur : LESAGE Gabriel
+Groupe : ILSEN-CLA grp 2
+
 # UCE Génie Logiciel Avancé : Techniques de tests
 
 ## Introduction
