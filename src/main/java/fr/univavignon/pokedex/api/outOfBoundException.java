@@ -5,7 +5,7 @@ package fr.univavignon.pokedex.api;
  *
  * @author fv
  */
- public final class PokedexException extends Exception {
+ public final class outOfBoundException extends Exception {
 
    /** Serialization index. **/
    private static final long serialVersionUID = 1L;
@@ -15,7 +15,7 @@ package fr.univavignon.pokedex.api;
     *
     * @see Exception#Exception(String)
     */
-   public PokedexException() {
+   public outOfBoundException() {
      super();
    }
 

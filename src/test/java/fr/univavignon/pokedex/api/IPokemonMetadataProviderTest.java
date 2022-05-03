@@ -8,25 +8,21 @@ public class IPokemonMetadataProviderTest {
 
     IPokemonMetadataProvider pokemonMetadataProvider;
     PokemonMetadata pokemonMetadata;
-    IPokedex pokedex;
     Pokemon bulbizarre;
-    IPokedexFactory pokedexFactory;
     @Before
-    public void init() throws PokedexException {
-        pokedexFactory = new PokedexFactory();
-        pokemonMetadataProvider = new PokemonMetadataProvider(pokedex = pokedexFactory.createPokedex(pokemonMetadataProvider, new RocketPokemonFactory()));
+    public void init() throws outOfBoundException {
+        pokemonMetadataProvider = new PokemonMetadataProvider();
         pokemonMetadata = new PokemonMetadata(0, "Bulbizarre", 126, 126, 90);
         bulbizarre = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 56);
     }
 
     @Test
     public void exceptionMetadataTest(){
-        Assert.assertThrows(PokedexException.class, () -> pokemonMetadataProvider.getPokemonMetadata(-1));
+        Assert.assertThrows(outOfBoundException.class, () -> pokemonMetadataProvider.getPokemonMetadata(-1));
     }
 
     @Test
-    public void getMetadataTest() throws PokedexException {
-        pokedex.addPokemon(bulbizarre);
+    public void getMetadataTest() throws outOfBoundException {
         Assert.assertEquals(pokemonMetadataProvider.getPokemonMetadata(0).getName(),bulbizarre.getName());
     }
 }

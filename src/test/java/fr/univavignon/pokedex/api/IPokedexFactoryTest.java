@@ -14,7 +14,7 @@ public class IPokedexFactoryTest {
     @Before
     public void init(){
         pokedexFactory = new PokedexFactory();
-        pokemonMetadataProvider = new PokemonMetadataProvider(pokedex);
+        pokemonMetadataProvider = new PokemonMetadataProvider();
     }
 
     @Test

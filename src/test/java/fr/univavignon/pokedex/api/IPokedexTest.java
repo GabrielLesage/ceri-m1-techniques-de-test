@@ -13,10 +13,10 @@ public class IPokedexTest {
     IPokemonFactory pokemonFactory;
 
     @Before
-    public void init() throws PokedexException {
+    public void init() throws outOfBoundException {
         pokedexFactory = new PokedexFactory();
-        pokemonMetadataProvider = new PokemonMetadataProvider(pokedex);
-        pokemonFactory = new RocketPokemonFactory();
+        pokemonMetadataProvider = new PokemonMetadataProvider();
+        pokemonFactory = new PokemonFactory();
         pokedex = pokedexFactory.createPokedex(pokemonMetadataProvider, pokemonFactory);
         bulbizarre = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 56);
     }
@@ -27,14 +27,14 @@ public class IPokedexTest {
     }
 
     @Test
-    public void addPokemonTest() throws PokedexException {
+    public void addPokemonTest() throws outOfBoundException {
         Assert.assertEquals(pokedex.addPokemon(bulbizarre),0);
         Assert.assertEquals(pokedex.size(), 1);
         Assert.assertEquals(pokedex.getPokemon(0).getCp(), bulbizarre.getCp());
     }
 
     @Test
-    public void getExceptionTest() throws PokedexException {
-        Assert.assertThrows(PokedexException.class,() -> {pokedex.getPokemon(-1);});
+    public void getExceptionTest() throws outOfBoundException {
+        Assert.assertThrows(outOfBoundException.class,() -> {pokedex.getPokemon(-1);});
     }
 }

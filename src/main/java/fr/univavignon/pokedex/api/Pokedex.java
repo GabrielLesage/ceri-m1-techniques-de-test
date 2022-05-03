@@ -34,9 +34,9 @@ public class Pokedex implements IPokedex {
     }
 
     @Override
-    public Pokemon getPokemon(int id) throws PokedexException {
+    public Pokemon getPokemon(int id) throws outOfBoundException {
         if(id < 0 || id >= listPokemon.size()){
-            throw new PokedexException();
+            throw new outOfBoundException();
         }
         else{
             return listPokemon.get(id);
@@ -57,12 +57,12 @@ public class Pokedex implements IPokedex {
     }
 
     @Override
-    public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy) {
+    public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy) throws outOfBoundException {
         return pokemonFactory.createPokemon(index, cp, hp, dust, candy);
     }
 
     @Override
-    public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
+    public PokemonMetadata getPokemonMetadata(int index) throws outOfBoundException {
         return pokemonMetadataProvider.getPokemonMetadata(index);
     }
 }

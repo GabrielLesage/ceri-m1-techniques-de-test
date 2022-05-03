@@ -1,16 +1,24 @@
 package fr.univavignon.pokedex.api;
 
+import java.util.ArrayList;
+
 public class PokemonMetadataProvider implements IPokemonMetadataProvider {
 
-    IPokedex pokedex;
+    ArrayList<PokemonMetadata> pokemonMetadatas;
 
-    public PokemonMetadataProvider(IPokedex pokedex) {
-        this.pokedex = pokedex;
+    public PokemonMetadataProvider() {
+        this.pokemonMetadatas = new ArrayList<>();
+        pokemonMetadatas.add(new PokemonMetadata(0, "Bulbizarre", 126, 126, 90));
+        pokemonMetadatas.add(new PokemonMetadata(133, "Aquali", 186, 168, 260));
     }
 
     @Override
-    public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
-        Pokemon pokemon = pokedex.getPokemon(index);
-        return new PokemonMetadata(pokemon.getIndex(), pokemon.getName(), pokemon.getAttack(), pokemon.getDefense(), pokemon.getStamina());
-    }
+    public PokemonMetadata getPokemonMetadata(int index) throws outOfBoundException {
+        if(index < 0 || index >= pokemonMetadatas.size()){
+            throw new outOfBoundException();
+        }
+        else{
+            return pokemonMetadatas.get(index);
+        }
+        }
 }
